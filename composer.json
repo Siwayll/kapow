@@ -1,0 +1,16 @@
+{
+    "name": "siwayll/exception",
+    "description": "simple basis for customizing exceptions",
+    "type": "library",
+    "require-dev": {
+        "atoum/atoum": "^3.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Siwaÿll",
+            "email": "siwayll@doublepsi.fr"
+        }
+    ],
+    "require": {}
+}
