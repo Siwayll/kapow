@@ -3,40 +3,11 @@
 namespace Siwayll\Exception;
 
 /**
- * Description of Level
+ * Class Level
+ * @package Siwayll\Exception
  */
 class Level
 {
-    /**
-     * Detailed debug information
-     */
-    const DEBUG = 100;
-
-    /**
-     * Interesting events
-     *
-     * Examples: User logs in, SQL logs.
-     */
-    const INFO = 200;
-
-    /**
-     * Uncommon events
-     */
-    const NOTICE = 250;
-
-    /**
-     * Exceptional occurrences that are not errors
-     *
-     * Examples: Use of deprecated APIs, poor use of an API,
-     * undesirable things that are not necessarily wrong.
-     */
-    const WARNING = 300;
-
-    /**
-     * Runtime errors
-     */
-    const ERROR = 400;
-
     /**
      * Critical conditions
      *
