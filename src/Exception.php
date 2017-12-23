@@ -9,6 +9,8 @@ class Exception extends \Exception
 {
     const VARIABLE_REGEX = "/(\{[a-zA-Z0-9\_]+\})/";
 
+    private $isLoaded = false;
+
     /**
      * Constructor
      *
@@ -16,38 +18,11 @@ class Exception extends \Exception
      * @param string  $message
      */
     public function __construct(
-        int $code = 0,
-        string $message = ''
+        string $message = '',
+        int $code = 0
     ) {
         parent::__construct($message, $code);
-    }
-
-    /**
-     * Set code
-     *
-     * @param integer $code
-     *
-     * @return self
-     */
-    public function setCode(int $code): Exception
-    {
-        $this->code = $code;
-
-        return $this;
-    }
-
-    /**
-     * Set message
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function setMessage(string $message): Exception
-    {
-        $this->message = $message;
-
-        return $this;
+        $this->loadMessageWithVariables();
     }
 
     /**
@@ -57,7 +32,7 @@ class Exception extends \Exception
      *
      * @return string
      */
-    public function getMessageWithVariables()
+    protected function loadMessageWithVariables()
     {
         if (empty($this->message)) {
             throw new \Exception(sprintf(
@@ -65,9 +40,8 @@ class Exception extends \Exception
                 get_class($this)
            ), Level::CRITICAL);
         }
-        $message = $this->message;
 
-        preg_match(self::VARIABLE_REGEX, $message, $variables);
+        preg_match(self::VARIABLE_REGEX, $this->message, $variables);
 
         foreach ($variables as $variable) {
             $variableName = substr($variable, 1, -1);
@@ -89,10 +63,10 @@ class Exception extends \Exception
                 ), Level::CRITICAL);
             }
 
-            $message = str_replace($variable, $this->$variableName, $message);
+            $this->message = str_replace($variable, $this->$variableName, $this->message);
         }
 
-        return $message;
+        $this->isLoaded = true;
     }
 }
 
