@@ -1,8 +1,8 @@
 <?php
 
-namespace Siwayll\Exception\Specs\Units;
+namespace Siwayll\Kapow\Specs\Units;
 
-use Siwayll\Exception\Tests\Units\Test;
+use Siwayll\Kapow\Tests\Units\Test;
 
 class Exception extends Test
 {
@@ -20,7 +20,7 @@ class Exception extends Test
         $this
             ->given($this->newTestedInstance('message', 200))
             ->class(get_class($this->testedInstance))
-                ->hasInterface('\Siwayll\Exception\ExceptionInterface')
+                ->hasInterface('\Siwayll\Kapow\KapowInterface')
         ;
     }
 

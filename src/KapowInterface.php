@@ -1,8 +1,8 @@
 <?php
 
-namespace Siwayll\Exception;
+namespace Siwayll\Kapow;
 
-interface ExceptionInterface
+interface KapowInterface
 {
     /**
      * @return string

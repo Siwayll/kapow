@@ -1,10 +1,7 @@
 {
-  "name": "siwayll/exception",
+  "name": "siwayll/kapow",
   "description": "simple base for customizing exceptions",
   "type": "library",
-  "require-dev": {
-    "atoum/atoum": "^3.2"
-  },
   "license": "MIT",
   "authors": [
     {
@@ -24,12 +21,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Siwayll\\Exception\\": "src/"
+      "Siwayll\\Kapow\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Siwayll\\Exception\\Tests\\Units\\": "./tests/units/src"
+      "Siwayll\\Kapow\\Tests\\Units\\": "./tests/units/src"
     }
   }
 }

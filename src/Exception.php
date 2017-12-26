@@ -1,11 +1,11 @@
 <?php
 
-namespace Siwayll\Exception;
+namespace Siwayll\Kapow;
 
 /**
  * class Exception
  */
-class Exception extends \Exception implements ExceptionInterface
+class Exception extends \Exception implements KapowInterface
 {
     const VARIABLE_REGEX = "/(\{[a-zA-Z0-9\_]+\})/";
 

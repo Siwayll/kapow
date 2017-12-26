@@ -1,6 +1,6 @@
 <?php
 
-namespace Siwayll\Exception\Tests\Units;
+namespace Siwayll\Kapow\Tests\Units;
 
 use mageekguy\atoum;
 use mageekguy\atoum\mock;

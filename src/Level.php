@@ -1,6 +1,6 @@
 <?php
 
-namespace Siwayll\Exception;
+namespace Siwayll\Kapow;
 
 /**
  * Class Level
