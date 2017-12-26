@@ -29,7 +29,7 @@ class Exception extends \Exception
      *
      * @return self
      */
-    public function setCode(int $code): self
+    final public function setCode(int $code): self
     {
         $this->code = $code;
 
@@ -43,7 +43,7 @@ class Exception extends \Exception
      *
      * @return self
      */
-    public function setMessage(string $message): self
+    final public function setMessage(string $message): self
     {
         $this->message = $message;
 
@@ -57,7 +57,7 @@ class Exception extends \Exception
      *
      * @return string
      */
-    public function getMessageWithVariables(): string
+    final public function getMessageWithVariables(): string
     {
         if (empty($this->message)) {
             throw new \Exception(sprintf(
