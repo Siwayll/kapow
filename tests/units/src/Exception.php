@@ -71,6 +71,13 @@ class Exception extends Test
             ->if($this->testedInstance->varOne = 'varOneContent')
             ->string($this->testedInstance->getMessageWithVariables())
                 ->isEqualTo('message with varOneContent')
+            ->KapowException(
+                function () {
+                    throw $this->testedInstance;
+                }
+            )
+                ->hasMessage($message)
+                ->hasKapowMessage('message with varOneContent')
         ;
     }
 
