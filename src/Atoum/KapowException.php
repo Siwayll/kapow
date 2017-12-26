@@ -21,16 +21,17 @@ class KapowException extends exception
 
         if ($this->valueIsSet()->value->getMessageWithVariables() == (string) $message) {
             $this->pass();
-        } else {
-            $this->fail(
-                $failMessage ?:
-                    $this->_(
-                        'Kapow message \'%s\' is not identical to \'%s\'',
-                        $this->value->getMessageWithVariables(),
-                        $message
-                    )
-            );
+            return $this;
         }
+
+        $this->fail(
+            $failMessage ?:
+                $this->_(
+                    'Kapow message \'%s\' is not identical to \'%s\'',
+                    $this->value->getMessageWithVariables(),
+                    $message
+                )
+        );
 
         return $this;
     }
