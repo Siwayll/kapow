@@ -1,18 +1,11 @@
-MKDIR := mkdir -p
-RM := rm -rf
-CP := cp -r
-
 define executable
 chmod u+x $1
 endef
 
-bin/%:
-	$(MKDIR) $@
+.PHONY: bin
+bin:
+	$(call executable,bin/atoum) && $(call executable,bin/composer)
 
-.PHONY: composer/install
-composer/install:
-	docker run --rm --interactive --tty --volume ${PWD}:/app composer install
-
-composer/require/%: composer/install
-	docker run --rm --interactive --tty --volume ${PWD}:/app composer require $@
-
+.PHONY: install
+install: bin
+	./bin/composer install
