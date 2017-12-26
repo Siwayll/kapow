@@ -9,8 +9,6 @@ class Exception extends \Exception
 {
     const VARIABLE_REGEX = "/(\{[a-zA-Z0-9\_]+\})/";
 
-    private $isLoaded = false;
-
     /**
      * Constructor
      *
@@ -22,7 +20,34 @@ class Exception extends \Exception
         int $code = 0
     ) {
         parent::__construct($message, $code);
-        $this->loadMessageWithVariables();
+    }
+
+    /**
+     * Set code
+     *
+     * @param integer $code
+     *
+     * @return self
+     */
+    public function setCode(int $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
     }
 
     /**
@@ -32,16 +57,18 @@ class Exception extends \Exception
      *
      * @return string
      */
-    protected function loadMessageWithVariables()
+    public function getMessageWithVariables(): string
     {
         if (empty($this->message)) {
             throw new \Exception(sprintf(
                 'Exception %s does not have a message',
                 get_class($this)
-           ), Level::CRITICAL);
+            ), Level::CRITICAL);
         }
 
-        preg_match(self::VARIABLE_REGEX, $this->message, $variables);
+        $message = $this->message;
+
+        preg_match(self::VARIABLE_REGEX, $message, $variables);
 
         foreach ($variables as $variable) {
             $variableName = substr($variable, 1, -1);
@@ -63,10 +90,9 @@ class Exception extends \Exception
                 ), Level::CRITICAL);
             }
 
-            $this->message = str_replace($variable, $this->$variableName, $this->message);
+            $message = str_replace($variable, $this->$variableName, $message);
         }
 
-        $this->isLoaded = true;
+        return $message;
     }
 }
-
