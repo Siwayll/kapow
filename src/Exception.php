@@ -5,7 +5,7 @@ namespace Siwayll\Exception;
 /**
  * class Exception
  */
-class Exception extends \Exception
+class Exception extends \Exception implements ExceptionInterface
 {
     const VARIABLE_REGEX = "/(\{[a-zA-Z0-9\_]+\})/";
 

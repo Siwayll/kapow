@@ -15,6 +15,15 @@ class Exception extends Test
         ;
     }
 
+    public function shouldImplementSiwayllExceptionInterface()
+    {
+        $this
+            ->given($this->newTestedInstance('message', 200))
+            ->class(get_class($this->testedInstance))
+                ->hasInterface('\Siwayll\Exception\ExceptionInterface')
+        ;
+    }
+
     public function shouldHaveSetterToMessage()
     {
         $this
