@@ -7,7 +7,7 @@ namespace Siwayll\Kapow;
  */
 class Exception extends \Exception implements KapowInterface
 {
-    const VARIABLE_REGEX = "/(\{[a-zA-Z0-9\_]+\})/";
+    const VARIABLE_REGEX = "/(?<variable>\{[a-zA-Z0-9\_]+\})/";
 
     /**
      * Constructor
@@ -68,9 +68,9 @@ class Exception extends \Exception implements KapowInterface
 
         $message = $this->message;
 
-        preg_match(self::VARIABLE_REGEX, $message, $variables);
+        preg_match_all(self::VARIABLE_REGEX, $message, $matches);
 
-        foreach ($variables as $variable) {
+        foreach ($matches['variable'] as $variable) {
             $variableName = substr($variable, 1, -1);
 
             if (!isset($this->$variableName)) {

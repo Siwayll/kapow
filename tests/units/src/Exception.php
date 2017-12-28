@@ -2,6 +2,7 @@
 
 namespace Siwayll\Kapow\Specs\Units;
 
+use Siwayll\Kapow\Level;
 use Siwayll\Kapow\Tests\Units\Test;
 
 class Exception extends Test
@@ -78,6 +79,27 @@ class Exception extends Test
             )
                 ->hasMessage($message)
                 ->hasKapowMessage('message with varOneContent')
+        ;
+    }
+
+    public function shouldUseMultipleVariablesToComposeMessage()
+    {
+        $this
+            ->given(
+                $message = '{varOne} {varTwo}',
+                $this->newTestedInstance($message, Level::ERROR)
+            )
+            ->if($this->testedInstance->varOne = 'Hello')
+            ->if($this->testedInstance->varTwo = 'World')
+            ->string($this->testedInstance->getMessageWithVariables())
+            ->isEqualTo('Hello World')
+            ->KapowException(
+                function () {
+                    throw $this->testedInstance;
+                }
+            )
+                ->hasMessage($message)
+                ->hasKapowMessage('Hello World')
         ;
     }
 
