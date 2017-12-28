@@ -9,6 +9,11 @@ namespace Siwayll\Kapow;
 class Level
 {
     /**
+     * Runtime errors
+     */
+    const ERROR = 400;
+
+    /**
      * Critical conditions
      *
      * Example: Application component unavailable, unexpected exception.
