@@ -12,10 +12,11 @@ use Siwayll\Kapow\Level;
 
 class TagMalformed extends Kapow
 {
-
     protected $superVillain;
 
     protected $superHero;
+
+    protected $specialAttack;
 
     /**
      * Message of the exception
@@ -28,7 +29,6 @@ class TagMalformed extends Kapow
     {
         $this->superVillain = $superVillain->getName();
         $this->superHero = $superHero->getName();
-
         $this->specialAttack = $specialAttack;
     }
 }
