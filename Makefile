@@ -19,5 +19,5 @@ bin/atoum: bin
 	&& $(call executable,bin/atoum)
 
 .PHONY: install
-install: bin/composer
+install: bin/composer bin/atoum
 	./bin/composer install
