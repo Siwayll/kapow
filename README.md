@@ -1,4 +1,5 @@
 # Kapow !
+[![Build Status](https://travis-ci.org/Siwayll/kapow.svg?branch=master)](https://travis-ci.org/Siwayll/kapow)
 
 Simple exception with variables in it.
 
