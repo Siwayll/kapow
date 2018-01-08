@@ -1,5 +1,7 @@
 # Kapow !
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSiwayll%2Fkapow.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSiwayll%2Fkapow?ref=badge_shield)
 [![Build Status](https://travis-ci.org/Siwayll/kapow.svg?branch=master)](https://travis-ci.org/Siwayll/kapow)
+
 
 Simple exception with variables in it.
 
@@ -54,3 +56,6 @@ make install
 ## License
 
 MIT
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSiwayll%2Fkapow.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSiwayll%2Fkapow?ref=badge_large)
