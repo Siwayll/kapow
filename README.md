@@ -1,11 +1,10 @@
 <h1 align="center">
 Kapow !
 </h1>
-<p align="center">
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSiwayll%2Fkapow.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSiwayll%2Fkapow?ref=badge_shield)
 [![Build Status](https://travis-ci.org/Siwayll/kapow.svg?branch=master)](https://travis-ci.org/Siwayll/kapow)
 [![Coverage Status](https://coveralls.io/repos/github/Siwayll/kapow/badge.svg?branch=master)](https://coveralls.io/github/Siwayll/kapow?branch=master)
-</p>
 
 Simple exception with variables in it.
 
