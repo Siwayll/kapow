@@ -8,7 +8,7 @@ Kapow !
 
 Simple exception with variables in it.
 
-## Quick start
+## Quick examples
 Create an Exception
 
 ```php
@@ -16,7 +16,7 @@ use Siwayll\Kapow\Exception as Kapow;
 use Siwayll\Kapow\Level;
 ...
 
-class TagMalformed extends Kapow
+class DodgeSpecialAttack extends Kapow
 {
     protected $superVillain;
 
@@ -39,6 +39,10 @@ class TagMalformed extends Kapow
     }
 }
 ```
+Throw it !
+```php
+throw new DodgeSpecialAttack($villan, $hero, 'ultra smash 2');
+```
 
 ## Contributing
 
@@ -49,7 +53,7 @@ class TagMalformed extends Kapow
 - Submit a pull request
 
 
-## Development
+## Running the tests
 
 ```bash
 make install
