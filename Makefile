@@ -19,5 +19,13 @@ bin/atoum: bin
 	&& $(call executable,bin/atoum)
 
 .PHONY: install
-install: bin/composer bin/atoum
+install: bin/composer bin/atoum ## install dependencies and create binaries
 	./bin/composer install
+
+.PHONY: test
+test: bin/atoum ## Launch tests
+	./bin/atoum
+
+.PHONY: help
+help: ## Display this help.
+	@printf "$$(cat $(MAKEFILE_LIST) | egrep -h '^[^:]+:[^#]+## .+$$' | sed -e 's/:[^#]*##/:/' -e 's/\(.*\):/\\033[92m\1\\033[0m:/' | sort -d | column -c2 -t -s :)\n"
