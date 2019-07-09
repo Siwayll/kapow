@@ -1,20 +1,11 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Siwayll\Kapow;
 
-/**
- * class Exception
- */
 class Exception extends \Exception implements KapowInterface
 {
     const VARIABLE_REGEX = "/(?<variable>\{[a-zA-Z0-9\_]+\})/";
 
-    /**
-     * Constructor
-     *
-     * @param integer $code
-     * @param string  $message
-     */
     public function __construct(
         string $message = '',
         int $code = 0
@@ -22,13 +13,6 @@ class Exception extends \Exception implements KapowInterface
         parent::__construct($message, $code);
     }
 
-    /**
-     * Set code
-     *
-     * @param integer $code
-     *
-     * @return self
-     */
     final public function setCode(int $code): self
     {
         $this->code = $code;
@@ -36,13 +20,6 @@ class Exception extends \Exception implements KapowInterface
         return $this;
     }
 
-    /**
-     * Set message
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     final public function setMessage(string $message): self
     {
         $this->message = $message;
@@ -51,11 +28,7 @@ class Exception extends \Exception implements KapowInterface
     }
 
     /**
-     * Get message with variables
-     *
      * @throws \Exception
-     *
-     * @return string
      */
     final public function getMessageWithVariables(): string
     {
