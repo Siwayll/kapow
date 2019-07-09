@@ -2,7 +2,7 @@
 
 namespace Siwayll\Kapow;
 
-interface KapowInterface
+interface KapowInterface extends \Throwable
 {
     /**
      * @return string
